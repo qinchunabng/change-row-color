@@ -18,5 +18,26 @@ module.exports = {
         //生成文件名
         filename:'bundle.js'
     },
-    plugins:[htmlPlugin]
+    plugins:[htmlPlugin],
+    devServer:{
+        //首次打包后自动打开浏览器
+        open: true,
+        host: '127.0.0.1',
+        //端口
+        port: 80
+    },
+    module:{
+        rules:[
+            {
+                //定义不同的模块对应的loader
+                test:/\.css$/,
+                use:['style-loader','css-loader']
+            },
+            {
+                //定义不同的模块对应的loader
+                test:/\.less$/,
+                use:['style-loader','css-loader','less-loader']
+            }
+        ]
+    }
 }
