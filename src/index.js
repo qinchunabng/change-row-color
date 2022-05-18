@@ -5,6 +5,10 @@ import $ from 'jquery'
 import './css/index.css'
 import './css/index.less'
 
+//导入图片，给img标签动态赋值
+import logo from './images/logo.png'
+$(".box").attr("src", logo);
+
 //2.定义jquery的入口函数
 $(function(){
     //3.实现奇偶行变色
@@ -12,3 +16,13 @@ $(function(){
     $('li:odd').css('background-color','yellow');
     $('li:even').css('background-color','gray');
 });
+
+//定义装饰器函数
+function info(target){
+    target.info='Person info.'
+}
+
+@info
+class Person{}
+
+console.log(Person.info)
