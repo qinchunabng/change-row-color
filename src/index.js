@@ -5,6 +5,8 @@ import $ from 'jquery'
 import './css/index.css'
 import './css/index.less'
 
+import '@/js/test/info.js'
+
 //导入图片，给img标签动态赋值
 import logo from './images/logo.png'
 $(".box").attr("src", logo);
@@ -25,4 +27,4 @@ function info(target){
 @info
 class Person{}
 
-console.log(Person.info)
+consle.log(Person.info)

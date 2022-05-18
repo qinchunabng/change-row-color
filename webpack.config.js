@@ -10,6 +10,11 @@ const htmlPlugin = new HtmlPlugin({
 const cleanWebpackPlugin = new CleanWebpackPlugin();
 //使用Node.js中的导出语法，向外导出一个webpack的配置对象
 module.exports = {
+    //在开发调试阶段，把值设置为eval-source-map，方便调试，在生产下，要关闭此配置
+    devtool: 'eval-source-map',
+    //或者设置为nosources-source-map，只显示源码行号，不显示源码
+    //设置为source-map会显示源码行号和源码文件
+    // devtool: 'nosources-source-map',
     //代表webpack的运行模式，可选值有development和production模式
     mode: 'development',
     //entry指定要处理哪个文件
@@ -63,5 +68,11 @@ module.exports = {
                 exclude:'/node_modules/'
             }
         ]
+    },
+    resolve: {
+        alias: {
+            //告诉webpack，代码中@符号表示src这一层目录
+            '@': path.join(__dirname,'./src/')
+        }
     }
 }
